@@ -23,7 +23,7 @@ email: halim9512@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A blog for technical writings related to software engineering.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://harimsng.github.io/mypages" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://harimsng.github.io/myblog" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: harimsng 
 
 # Build settings
