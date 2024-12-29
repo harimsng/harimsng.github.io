@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-30T06:59:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">hseong’s blog</title><subtitle>A blog for technical writings related to software engineering.</subtitle><entry><title type="html">Git Basic Usage</title><link href="http://localhost:4000/git/2024/12/30/Git_Basic_Usage.html" rel="alternate" type="text/html" title="Git Basic Usage" /><published>2024-12-30T06:10:00+09:00</published><updated>2024-12-30T06:10:00+09:00</updated><id>http://localhost:4000/git/2024/12/30/Git_Basic_Usage</id><content type="html" xml:base="http://localhost:4000/git/2024/12/30/Git_Basic_Usage.html"><![CDATA[<h2 id="basic-commands">Basic commands</h2>
+<hr />
+
+<h4 id="git-init">git init</h4>
+<p>Initialize new git repository in the current directory. This command will generate <code class="language-plaintext highlighter-rouge">.git</code>  directory that contains everything related to the current git repository.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd repository_path
+git init
+</code></pre></div></div>
+
+<h4 id="git-add">git add</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add source.c log.txt
+
+git add .  # every files
+
+git add *.c  # every .c files
+</code></pre></div></div>
+
+<p>Stage specified files before commit. Files filtered by <code class="language-plaintext highlighter-rouge">.gitignore</code> will not be staged.</p>
+
+<p>Staged files can be unstaged with other git command. Use <code class="language-plaintext highlighter-rouge">git status</code> to show the command.</p>
+
+<p>You may need to create <code class="language-plaintext highlighter-rouge">.gitignore</code> file to exclude specific files(automatically generated files, large size files, etc.).</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.gitignore</code> example</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a.out
+# generated executable file
+
+*.root
+# large size file
+
+*/**
+# exclude child directories and files in there.
+</code></pre></div></div>
+<p>This <code class="language-plaintext highlighter-rouge">.gitignore</code> example is suitable for managing only source code in the current directory.</p>
+
+<h4 id="git-status">git status</h4>
+<p>Print staged files and untracked files and other useful information such as current branch name and unstage command.</p>
+
+<p>New, modified, deleted files are shown as untracked files.</p>
+
+<h4 id="git-commit">git commit</h4>
+<p>Commit staged files. This will create a save point that stores current state of the repository. If there are staged or untracked files, user must commit, restore or reset these files.</p>
+
+<p>A commit log contains commit hash, author, date and comment. You can change branch to other commit by using <code class="language-plaintext highlighter-rouge">git checkout COMMIT_HASH</code> command.</p>
+
+<h4 id="git-log">git log</h4>
+<p>List commit logs. There are various options for formatting, ordering, graphical branch representation, etc.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git log --oneline</code> example</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+
+52b1cef Update README.md
+
+...
+</code></pre></div></div>
+
+<p>52b1cef is <strong>commit hash</strong> and following is comment.</p>
+
+<h4 id="git-checkout">git checkout</h4>
+<p>Change current branch to other branch or commit.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout 52b1cef   # change to other commit by using commit hash
+
+git checkout main  # change to main branch
+</code></pre></div></div>
+
+<h2 id="connect-git-repository-to-remote-repository">Connect Git repository to remote repository</h2>
+<hr />
+
+<h4 id="git-remote-add-origin-address">git remote add origin ADDRESS</h4>
+<p>Add remote repository and label it origin.</p>
+
+<p>If you are using GitHub, ADDRESS can be either web URL or SSH key. Using URL for address dose not allow modifying the repository directly. Use SSH key If you want to modify the repository without pull request.</p>
+
+<h4 id="git-push--u-origin">git push -u origin</h4>
+<p>Request to synchronize remote repository labeled as origin with local repository.</p>
+
+<h4 id="git-pull">git pull</h4>
+<p>Try to synchronize local repository with remote repository. It is equivalent to <code class="language-plaintext highlighter-rouge">git pull origin</code>.</p>
+
+<p>If difference between local and remote cannot be resolved automatically by git, user need to resolve the conflict manually.</p>]]></content><author><name></name></author><category term="git" /><summary type="html"><![CDATA[Basic commands git init Initialize new git repository in the current directory. This command will generate .git directory that contains everything related to the current git repository. cd repository_path git init git add git add source.c log.txt git add . # every files git add *.c # every .c files Stage specified files before commit. Files filtered by .gitignore will not be staged. Staged files can be unstaged with other git command. Use git status to show the command. You may need to create .gitignore file to exclude specific files(automatically generated files, large size files, etc.). .gitignore example a.out # generated executable file *.root # large size file */** # exclude child directories and files in there. This .gitignore example is suitable for managing only source code in the current directory. git status Print staged files and untracked files and other useful information such as current branch name and unstage command. New, modified, deleted files are shown as untracked files. git commit Commit staged files. This will create a save point that stores current state of the repository. If there are staged or untracked files, user must commit, restore or reset these files. A commit log contains commit hash, author, date and comment. You can change branch to other commit by using git checkout COMMIT_HASH command. git log List commit logs. There are various options for formatting, ordering, graphical branch representation, etc. git log --oneline example ... 52b1cef Update README.md ... 52b1cef is commit hash and following is comment. git checkout Change current branch to other branch or commit. git checkout 52b1cef # change to other commit by using commit hash git checkout main # change to main branch Connect Git repository to remote repository git remote add origin ADDRESS Add remote repository and label it origin. If you are using GitHub, ADDRESS can be either web URL or SSH key. Using URL for address dose not allow modifying the repository directly. Use SSH key If you want to modify the repository without pull request. git push -u origin Request to synchronize remote repository labeled as origin with local repository. git pull Try to synchronize local repository with remote repository. It is equivalent to git pull origin. If difference between local and remote cannot be resolved automatically by git, user need to resolve the conflict manually.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2024/12/30/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2024-12-30T06:10:00+09:00</published><updated>2024-12-30T06:10:00+09:00</updated><id>http://localhost:4000/jekyll/update/2024/12/30/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/12/30/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
