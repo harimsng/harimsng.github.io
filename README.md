@@ -32,10 +32,6 @@ You can now [merge](https://docs.github.com/en/get-started/quickstart/github-glo
 1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
 
 <footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
 -->
 
 ---
