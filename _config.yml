@@ -32,6 +32,11 @@ theme: minima
 minima:
   skin: dark
 
+plugins:
+  - jekyll-remote-theme
+
+remote-theme: jekyll/minima@6b9b78dad3e5c9f733c901e10287465735b36169
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
