@@ -9,7 +9,7 @@ categories: git
 ___
 
 #### git init
-Initialize new git repository in the current directory. This command will generate `.git`  directory that contains everything related to the current git repository.
+Initialize new git repository in the current directory. This command will create `.git` directory that contains files related to the git repository.
 
 ```
 cd repository_path
@@ -20,43 +20,43 @@ git init
 ```
 git add source.c log.txt
 
-git add .  # every files
+git add .  # every files except file name is starting with dot.
 
-git add *.c  # every .c files
+git add *.c  # files ending with '.c'
 ```
 
-Stage specified files before commit. Files filtered by `.gitignore` will not be staged.
+At some point, user will want to make record for current state of the repository.
 
-Staged files can be unstaged with other git command. Use `git status` to show the command.
+Differences between previous commit and current state such as new, modified, deleted files are called untracked files. 
 
-You may need to create `.gitignore` file to exclude specific files(automatically generated files, large size files, etc.).
+`git add` command stages selected untracked files. Staged files can be unstaged. Use `git status` to show unstage command.
+
+You may need to create `.gitignore` file to prevent specific files(automatically generated files, large files, etc.) being automatically staged.
 
 * `.gitignore` example
 
 ```
 a.out
-# generated executable file
+# ignore generated executable file
 
 *.root
-# large size file
+# ignore data file
 
 */**
-# exclude child directories and files in there.
+# exclude child directories and files.
 ```
 This `.gitignore` example is suitable for managing only source code in the current directory.
 
 #### git status
 Print staged files and untracked files and other useful information such as current branch name and unstage command.
 
-New, modified, deleted files are shown as untracked files. 
-
 #### git commit
-Commit staged files. This will create a save point that stores current state of the repository. If there are staged or untracked files, user must commit, restore or reset these files.
+Commit staged files. This will create a save point that stores current state of the repository. Commit logs for the repository are stored at `.git`
 
-A commit log contains commit hash, author, date and comment. You can change branch to other commit by using `git checkout COMMIT_HASH` command.
+A commit log includes commit hash, author, date and comment. You can change branch to other commit by using `git checkout COMMIT_HASH` command.
 
 #### git log
-List commit logs. There are various options for formatting, ordering, graphical branch representation, etc. 
+List commit logs. There are various options for formatting, ordering, graphical branch representation, etc.
 
 * `git log --oneline` example
 
@@ -68,10 +68,10 @@ List commit logs. There are various options for formatting, ordering, graphical 
 ...
 ```
 
-52b1cef is **commit hash** and following is comment.
+52b1cef is short version of **commit hash** and following "Update ..." is comment.
 
 #### git checkout
-Change current branch to other branch or commit.
+Change current branch to other branch.
 
 ```
 git checkout 52b1cef   # change to other commit by using commit hash
@@ -85,12 +85,12 @@ ___
 #### git remote add origin ADDRESS
 Add remote repository and label it origin.
 
-If you are using GitHub, ADDRESS can be either web URL or SSH key. Using URL for address dose not allow modifying the repository directly. Use SSH key If you want to modify the repository without pull request.
+If you are using GitHub, ADDRESS can be either web URL or SSH key. Using URL dose not allow modifying the repository directly. Use SSH key If you want to modify the repository without pull request.
 
-#### git push -u origin
-Request to synchronize remote repository labeled as origin with local repository.
+#### git push origin main
+Update main branch of remote repository labeled origin using local repository.
 
 #### git pull
-Try to synchronize local repository with remote repository. It is equivalent to `git pull origin`.
+Update local repository using remote repository.
 
-If difference between local and remote cannot be resolved automatically by git, user need to resolve the conflict manually.
+If local and remote repository cannot be merged automatically by git, user need to resolve the merge conflict.
