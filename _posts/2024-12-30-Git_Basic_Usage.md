@@ -51,7 +51,7 @@ This `.gitignore` example is suitable for managing only source code in the curre
 Print staged files and untracked files and other useful information such as current branch name and unstage command.
 
 #### git commit
-Commit staged files. This will create a save point that stores current state of the repository. Commit logs for the repository are stored at `.git`
+Commit staged files. This will create a save point that reflects changed state of the repository.
 
 A commit log includes commit hash, author, date and comment. You can change branch to other commit by using `git checkout COMMIT_HASH` command.
 
