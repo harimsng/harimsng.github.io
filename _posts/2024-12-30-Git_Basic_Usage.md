@@ -93,4 +93,5 @@ Update main branch of remote repository labeled origin using local repository.
 #### git pull
 Update local repository using remote repository.
 
-If local and remote repository cannot be merged automatically by git, user need to resolve the merge conflict.
+- If one or more untracked file is subject to change by an update, the update will not proceed. Users must commit or restore those files.
+- If local and remote repository cannot be merged automatically by git, user need to resolve the merge conflict.
