@@ -9,12 +9,13 @@ Github Pages serves static files in the Github repository using Github Actions.
 Github Pages created by following a [tutorial](https://github.com/skills/github-pages) does not provide workflow definition file. It seems that Github Actions uses default workflow If workflow does not exist. I want create new workflow to use a higher version of Jekyll. So I need to understand what workflow is and know how to write definition file.
 
 ## Workflow
-As its name implies, workflow is consists of a series of works.
+Workflow is defined by a YAML file. It has to follow specific syntax for Github Actions to execute.
 ```
-name: my_workflow
+name: workflow_example
+...
 ```
 ### Event
-Workflow is triggered by an event. It consists of one or more jobs.
+Workflow is triggered by an event.
 `git push` triggers workflow in almost all cases.
 ```
 on:
@@ -26,7 +27,8 @@ on:
 			- main
 ```
 ### Job
-Job consists of a runner and steps. It will run on a runner machine and run steps.
+Workflow consists of one or more jobs.
+Each jobs consists of a runner and steps.
 ```
 jobs:
 	job1:
@@ -35,24 +37,26 @@ jobs:
 		...
 ```
 #### [Runner](https://docs.github.com/en/actions/using-github-hosted-runners)
-A machine that execute jobs.
+A machine that execute a series of steps in the jobs.
 ```
 	job1:
 		runs-on: ubuntu-latest
 		#runs-on: [self-hosted, "ubuntu-latest"]
 ```
 #### Steps
+A step can run a script or an action.
 ```
 	job1:
 		steps:
-			- name: step 1
-			  env:
-			  run:
+			- name: step 1 # name of a step
+			  env: # environmental variables used in the runner.
+				  USER: hseong
+			  run: | # a command line or multi line with pipe 
+				  echo hello world
+				  bash script.sh
 			- name: step2
-			  uses:
+			  uses: # select an action
 ```
-A step can run a script or an action.
-
 
 #### Reference
 [About workflows](https://docs.github.com/en/actions/writing-workflows/about-workflows)
