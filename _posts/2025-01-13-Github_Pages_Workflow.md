@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Customize workflow of Github pages"
+title: "Github Pages Workflow"
 date:   2025-01-13 17:00:00 +0900
 categories: github
 ---
@@ -19,43 +19,43 @@ Workflow is triggered by an event.
 `git push` triggers workflow in almost all cases.
 ```
 on:
-	push:
-		branches:
-			- main
-	pull_request:
-		branches:
-			- main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 ```
 ### Job
 Workflow consists of one or more jobs.
 Each jobs consists of a runner and steps.
 ```
 jobs:
-	job1:
-		...
-	job2:
-		...
+  job1:
+    ...
+  job2:
+    ...
 ```
 #### [Runner](https://docs.github.com/en/actions/using-github-hosted-runners)
 A machine that execute a series of steps in the jobs.
 ```
-	job1:
-		runs-on: ubuntu-latest
-		#runs-on: [self-hosted, "ubuntu-latest"]
+  job1:
+    runs-on: ubuntu-latest
+    #runs-on: [self-hosted, "ubuntu-latest"]
 ```
 #### Steps
 A step can run a script or an action.
 ```
-	job1:
-		steps:
-			- name: step 1 # name of a step
-			  env: # environmental variables used in the runner.
-				  USER: hseong
-			  run: | # a command line or multi line with pipe 
-				  echo hello world
-				  bash script.sh
-			- name: step2
-			  uses: # select an action
+  job1:
+    steps:
+      - name: step 1 # name of a step
+        env: # environmental variables used in the runner.
+          USER: hseong
+        run: | # a command line or multi line with pipe 
+          echo hello world
+          bash script.sh
+      - name: step2
+        uses: # select an action
 ```
 
 #### Reference
