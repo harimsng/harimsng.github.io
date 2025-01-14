@@ -63,6 +63,7 @@ Github Pages tutorial requires to use default workflow 'pages-build-deployment' 
 
 
 `github.com/{username}/{username}.github.io/settings/pages` contains settings for Github Pages. Open dropdown menu in 'Build from Deployment' - 'Source' and select 'GitHub Actions'.
+### Jekyll 
 
 #### Reference
 [About workflows](https://docs.github.com/en/actions/writing-workflows/about-workflows)

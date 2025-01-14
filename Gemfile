@@ -14,8 +14,9 @@ gem "minima", "> 2.5", github: "jekyll/minima"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
-# group :jekyll_plugins do
-# end
+group :jekyll_plugins do
+  gem "jekyll-remote-theme"
+end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.

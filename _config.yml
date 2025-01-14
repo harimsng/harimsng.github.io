@@ -26,15 +26,15 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://harimsng.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: harimsng 
 
+plugins:
+  - jekyll-remote-theme
+remote-theme: jekyll/minima
+
 # Build settings
 theme: minima
 
 minima:
   skin: dark
-
-#plugins:
-# - jekyll-remote-theme
-# remote-theme: jekyll/minima@6b9b78dad3e5c9f733c901e10287465735b36169
 
 # Exclude from processing.
 # The following items will not be processed, by default.
