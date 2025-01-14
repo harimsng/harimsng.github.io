@@ -58,6 +58,12 @@ A step can run a script or an action.
         uses: # select an action
 ```
 
+## Workflow Templates
+Github Pages tutorial requires to use default workflow 'pages-build-deployment' which cannot be modified. I need to change one of Github Pages options to enable custom workflow.
+
+
+`github.com/{username}/{username}.github.io/settings/pages` contains settings for Github Pages. Open dropdown menu in 'Build from Deployment' - 'Source' and select 'GitHub Actions'.
+
 #### Reference
 [About workflows](https://docs.github.com/en/actions/writing-workflows/about-workflows)
 
