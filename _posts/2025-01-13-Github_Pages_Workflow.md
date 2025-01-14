@@ -35,7 +35,7 @@ jobs:
   job2:
     ...
 ```
-#### [Runner](https://docs.github.com/en/actions/using-github-hosted-runners)
+#### Runner
 A machine that execute a series of steps in the jobs.
 ```
   job1:
@@ -69,11 +69,10 @@ For example, use `jekyll.yml` instead of `jekyll-gh-pages.yml` in [starter-workf
 ## Local Test
 At this point, custom workflow should be working. Test it in local environment if current setup works correctly without any errors. Letting Github Action do the test is very time consuming.
 1. Install ruby. If system ruby exists and version is too low, use `rbenv` or similar tool.
-2. 
-`bundle install`
-`bundle exec jekyll serve`
+2. Make sure `Gemfile` and `_config.yml` don't have Github Pages related options.
+3. Run `bundle install` and `bundle exec jekyll serve`.
 
-#### Reference
+#### References
 [About workflows](https://docs.github.com/en/actions/writing-workflows/about-workflows)
 
 
