@@ -5,29 +5,25 @@ date:   2025-01-13 17:00:00 +0900
 categories: github
 ---
 ## Github Pages
-Github Pages serves static files in the Github repository using Github Actions by using static site generator Jekyll. Github Pages provide default Github Action workflow which have some limits. I want to create custom workflow where a higher version of Jekyll and minima can be built. My purpose is to understand related concepts and make my blog use minima v3.0.0 with dark theme by adding new workflow.
+Github Pages serves static files in the Github repository by using static site generator Jekyll and Github Actions. Github Pages provide default Github Action workflow which is not modifiable and has limitations. My purpose is to understand related concepts and use custom workflow so that my blog uses minima v3.0.0 with dark theme.
 
 ## Workflow
-Workflow is defined by a YAML file. It has to follow specific syntax for Github Actions to execute.
+Workflow is defined by a YAML file. It has to follow specific syntax for Github Actions to work.
 ```
 name: workflow_example
 ...
 ```
 ### Event
 Workflow is triggered by an event.
-`git push` triggers workflow in almost all cases.
+Example below shows a event definition triggered by `git push` on `main` branch.
 ```
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 ```
 ### Job
-Workflow consists of one or more jobs.
-Each jobs consists of a runner and steps.
+Workflow consists of one or more jobs and each job consists of a runner and one or more steps.
 ```
 jobs:
   job1:
@@ -36,7 +32,7 @@ jobs:
     ...
 ```
 #### Runner
-A machine that execute a series of steps in the jobs.
+A machine that execute a series of steps in a job.
 ```
   job1:
     runs-on: ubuntu-latest
@@ -58,12 +54,14 @@ A step can run a script or an action.
 ```
 
 ## Workflow Templates
-Github Pages tutorial requires to use default workflow 'pages-build-deployment' which cannot be modified. I need to change one of Github Pages options to enable custom workflow.
+[Github Pages tutorial](https://github.com/skills/github-pages) requires using default workflow 'pages-build-deployment' which cannot be modified. I need to change one of Github Pages options to enable custom workflow.
 `github.com/{username}/{username}.github.io/settings/pages` contains settings for Github Pages. Open dropdown menu in 'Build from Deployment' - 'Source' and select 'GitHub Actions'.
 
 
 This is important point because Github Pages does not allow packages and plugins out of its whitelist, which does not include the latest version of minima.
-It means that workflow template for Github Pages should not be used too.
+It means that workflow templates tailored for Github Pages should not be used too.
+
+
 For example, use `jekyll.yml` instead of `jekyll-gh-pages.yml` in [starter-workflows](https://github.com/actions/starter-workflows/tree/main/pages). Major differences are that former has an additional step `Setup Ruby` and there is difference in `Build with Jekyll` step. The latter uses minima of fixed version 2.5.1.
 
 ## Local Test
