@@ -50,6 +50,16 @@ There are other build options such as debug, sanitize. See the guide for the det
 Open configuration file with a command `Ctrl+Shift+F2` and reload it with `Ctrl+Shift+F5` after saving the file. Options can be tested with those commands easily.
 ### Keyboard shortcuts
 `map {key combination} {action} {args...}`
+
+#### Creation
+```
+# create vertical split window where shell's cwd is same as current window
+map alt+d launch --location=vsplit --cwd=current
+
+# create horizontal split window
+map alt+shift+d launch --location=hsplit --cwd=current
+```
+
 #### Window traversal
 ```
 map alt+k neighboring_window up
@@ -58,16 +68,29 @@ map alt+l neighboring_window right
 map alt+j neighboring_window down
 ```
 
+#### Tab shortcut
+```
+map alt+1 goto_tab 1
+map alt+2 goto_tab 2
+```
+
 ### Fonts
-User can make fonts look similar over multiple operating systems by adjusting those options
+User can make fonts look similar over multiple operating systems by adjusting font options
 ```
 font_family      family='{font name}'
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
 
 text_composition_strategy 1.0 0
 font_size        13.0
 modify_font      cell_width 95%
 modify_font      cell_height 0px
+```
+
+### Tab bar
+This example is for Vim-like tab bar
+```
+tab_bar_style separator
+tab_title_template " {index}: {tab.active_exe} "
+tab_separator " "
+inactive_tab_foreground #000000
+inactive_tab_background #707070
 ```
