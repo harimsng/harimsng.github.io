@@ -29,8 +29,6 @@ C/C++, shell script, Makefile, git, Docker, x86
 - Implemented a web server supporting HTTP/1.1 and a subset of the nginx configuration.
 - Optimized the HTTP message processing pipeline to minimize memory footprint. Upon receiving an HTTP message, the body is sent to the destination immediately. Performance gain is significant, especially when the message body is large, compared to waiting until the entire message is fully received.
 
-##### Wireframe Renderer
-
 
 ### Education
 <hr style="border: none; border-bottom: 1px solid white;">
